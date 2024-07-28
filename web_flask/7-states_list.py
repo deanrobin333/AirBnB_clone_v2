@@ -9,6 +9,9 @@
 # fetch data from storage engine
 from flask import Flask, render_template
 
+import sys
+
+sys.path.append('../AirBnB_clone_v2/')
 from models import storage
 
 # create an instance called app of the class by passong the __name__ variable
