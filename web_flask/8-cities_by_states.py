@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-# 7-states_list.py
-
 """script that starts a Flask web application"""
 
 
@@ -33,4 +31,4 @@ def cities_list(n=None):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(debug=True)

@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-# 7-states_list.py
-
 """script that starts a Flask web application"""
 
 
@@ -24,13 +22,16 @@ def teardown_db(exception=None):
         storage.close()
 
 
-@app.route('/cities_by_states')
-def cities_list(n=None):
+@app.route('/states')
+@app.route('/states/<state_id>')
+def states(state_id=None):
     """displays a HTML page: inside the tag BODY"""
-    # check 7-states_list.py and html for another way to do this
-    states = storage.all('State').values()
-    return render_template('8-cities_by_states.html', states=states)
+    states = storage.all("State")
+    if state_id is None:
+        return render_template('9-states.html', states=states)
+    state = states.get('State.{}'.format(state_id))
+    return render_template('9-states.html', state=state)
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(debug=True)
