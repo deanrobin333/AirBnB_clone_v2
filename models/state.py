@@ -31,7 +31,8 @@ class State(BaseModel, Base):
     if environ.get('HBNB_TYPE_STORAGE') != 'db':
         @property
         def cities(self):
-            '''Return the list of City objects from storage linked to the current State
+            '''Return the list of City objects from storage
+            linked to the current State
 
             Returns: cities in a state
             '''
