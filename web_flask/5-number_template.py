@@ -4,10 +4,8 @@
 '''Script that starts a web application'''
 
 # import flask class from flask module
-from flask import Flask
-
 # import render_template for rendering templates to browser
-from flask import render_template
+from flask import Flask, render_template
 
 # create an instance called app of the class by passing __name__ variable
 app = Flask(__name__)
@@ -76,17 +74,15 @@ def number(n):
 
 
 @app.route('/number_template/<int:n>')
-def number_template_route(n):
-    """display a HTML page only if n is an integer
-
-    H1 tag: "Number: n" inside the tag BODY
+def number_template(n):
+    '''displays a HTML page only if n is an integer
 
     Args:
-        n (integer): number to be displayed on page
+        n (int): number to be displayed
 
     Returns:
-        str: text on the page
-    """
+        str: text on html page
+    '''
     return render_template('5-number.html', num=n)
 
 
